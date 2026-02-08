@@ -1,4 +1,4 @@
-import { BrowserRouter, Routes, Route, Navigate } from 'react-router-dom';
+import { HashRouter, Routes, Route, Navigate } from 'react-router-dom';
 import { AppShell } from './components/layout/AppShell';
 import { MyGamesPage } from './pages/MyGamesPage';
 import { GalleryPage } from './pages/GalleryPage';
@@ -7,7 +7,7 @@ import { SocialPage } from './pages/SocialPage';
 
 export default function App() {
   return (
-    <BrowserRouter>
+    <HashRouter>
       <AppShell>
         <Routes>
           <Route path="/my-games" element={<MyGamesPage />} />
@@ -17,6 +17,6 @@ export default function App() {
           <Route path="*" element={<Navigate to="/my-games" replace />} />
         </Routes>
       </AppShell>
-    </BrowserRouter>
+    </HashRouter>
   );
 }
