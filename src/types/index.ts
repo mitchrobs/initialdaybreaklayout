@@ -43,7 +43,28 @@ export interface UserProfile extends User {
   joinDate: string;
 }
 
-export type EventType = 'daily-challenge' | 'weekly-tournament' | 'community';
+export interface GroupMember {
+  id: string;
+  name: string;
+  avatarColor: string;
+  initial: string;
+}
+
+export interface Group {
+  id: string;
+  name: string;
+  emoji: string;
+  memberCount: number;
+  currentUserRank: number;
+  members: GroupMember[];
+  stats: {
+    puzzles: number;
+    avgStreak: string;
+    donated: number;
+  };
+}
+
+export type EventType = 'daily-challenge' | 'weekly-tournament' | 'community' | 'charity-raffle';
 
 export interface GameEvent {
   id: string;
@@ -56,6 +77,10 @@ export interface GameEvent {
   participants: number;
   isActive: boolean;
   prize?: string;
+  charityName?: string;
+  amountRaised?: number;
+  goalAmount?: number;
+  ticketCost?: number;
 }
 
 export interface LeaderboardEntry {
