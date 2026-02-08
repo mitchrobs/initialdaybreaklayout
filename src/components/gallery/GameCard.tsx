@@ -7,13 +7,16 @@ interface GameCardProps {
 export function GameCard({ game }: GameCardProps) {
   return (
     <div
-      className="min-w-[150px] w-[150px] h-[200px] rounded-2xl shadow-card flex flex-col items-center justify-end p-4 snap-start cursor-pointer active:scale-[0.97] transition-transform"
+      className="min-w-[140px] w-[140px] h-[140px] rounded-xl shadow-card flex items-end p-3.5 snap-start cursor-pointer active:scale-[0.97] transition-transform relative overflow-hidden"
       style={{
         background: `linear-gradient(145deg, ${game.gradientFrom}, ${game.gradientTo})`,
       }}
     >
-      <span className="text-4xl mb-2 drop-shadow-md">{game.icon}</span>
-      <span className="text-white font-semibold text-sm text-center leading-tight">
+      <div className="absolute inset-0 opacity-[0.07]" style={{
+        backgroundImage: `radial-gradient(circle at 25% 25%, white 1px, transparent 1px), radial-gradient(circle at 75% 75%, white 1px, transparent 1px)`,
+        backgroundSize: '20px 20px',
+      }} />
+      <span className="relative text-white font-semibold text-[14px] leading-tight">
         {game.name}
       </span>
     </div>
